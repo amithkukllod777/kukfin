@@ -1,0 +1,10 @@
+{
+  "name": "kukfin",
+  "private": true,
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "dev": "pnpm --filter @kukfin/web dev",
+    "build": "pnpm --filter @kukfin/web build",
+    "lint": "pnpm --filter @kukfin/web lint"
+  }
+}
