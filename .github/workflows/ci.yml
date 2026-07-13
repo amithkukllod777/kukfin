@@ -27,5 +27,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install -e services/api
-      - run: python -m compileall services/api
+          cache: pip
+      - run: pip install -e 'services/api[dev]'
+      - run: ruff check services/api
+      - run: pytest -q services/api/tests
