@@ -32,6 +32,7 @@ services:
       APP_ENV: development
       DATABASE_URL: postgresql+psycopg://kukfin:kukfin_dev@postgres:5432/kukfin
       REDIS_URL: redis://redis:6379/0
+      JWT_SECRET: local-development-secret-change-before-deployment
       CORS_ORIGINS: http://localhost:3000
     ports:
       - "8000:8000"
@@ -44,6 +45,8 @@ services:
   web:
     build:
       context: ./apps/web
+      args:
+        NEXT_PUBLIC_API_BASE_URL: http://localhost:8000
     environment:
       NEXT_PUBLIC_API_BASE_URL: http://localhost:8000
     ports:
