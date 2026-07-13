@@ -10,7 +10,11 @@ os.environ["JWT_SECRET"] = "test-secret-that-is-long-enough-for-ci"
 
 from fastapi.testclient import TestClient  # noqa: E402
 
+from app.db import Base, engine  # noqa: E402
 from app.main import app  # noqa: E402
+
+
+Base.metadata.create_all(bind=engine)
 
 
 def test_authenticated_portfolio_flow() -> None:
