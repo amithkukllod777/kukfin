@@ -1,6 +1,6 @@
 [project]
 name = "kukfin-api"
-version = "0.2.0"
+version = "0.3.0"
 description = "KukFin FastAPI gateway"
 requires-python = ">=3.11"
 dependencies = [
@@ -8,6 +8,7 @@ dependencies = [
   "uvicorn[standard]>=0.34,<1",
   "pydantic-settings>=2.7,<3",
   "sqlalchemy>=2.0,<3",
+  "alembic>=1.14,<2",
   "psycopg[binary]>=3.2,<4",
   "redis>=5.2,<6",
   "PyJWT>=2.10,<3",
