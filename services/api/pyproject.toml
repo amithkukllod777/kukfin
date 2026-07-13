@@ -1,6 +1,6 @@
 [project]
 name = "kukfin-api"
-version = "0.1.0"
+version = "0.2.0"
 description = "KukFin FastAPI gateway"
 requires-python = ">=3.11"
 dependencies = [
@@ -9,7 +9,9 @@ dependencies = [
   "pydantic-settings>=2.7,<3",
   "sqlalchemy>=2.0,<3",
   "psycopg[binary]>=3.2,<4",
-  "redis>=5.2,<6"
+  "redis>=5.2,<6",
+  "PyJWT>=2.10,<3",
+  "email-validator>=2.2,<3"
 ]
 
 [project.optional-dependencies]
