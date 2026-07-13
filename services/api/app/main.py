@@ -1,4 +1,3 @@
-from contextlib import asynccontextmanager
 from datetime import UTC, datetime
 
 from fastapi import FastAPI
@@ -7,7 +6,7 @@ from pydantic import BaseModel
 from sqlalchemy import text
 
 from app.core.config import get_settings
-from app.db import Base, engine
+from app.db import engine
 from app.routers import auth, portfolios, watchlists
 
 
@@ -20,18 +19,10 @@ class HealthResponse(BaseModel):
     timestamp: datetime
 
 
-@asynccontextmanager
-async def lifespan(_: FastAPI):
-    # Alembic migrations will replace create_all before the first production deployment.
-    Base.metadata.create_all(bind=engine)
-    yield
-
-
 app = FastAPI(
     title=settings.app_name,
-    version="0.2.0",
+    version="0.3.0",
     description="SaaS gateway for KukFin research and portfolio intelligence.",
-    lifespan=lifespan,
 )
 
 app.add_middleware(
