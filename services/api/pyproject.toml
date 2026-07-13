@@ -1,6 +1,10 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "kukfin-api"
-version = "0.3.0"
+version = "0.3.1"
 description = "KukFin FastAPI gateway"
 requires-python = ">=3.11"
 dependencies = [
@@ -21,6 +25,11 @@ dev = [
   "pytest>=8.3,<9",
   "ruff>=0.9,<1"
 ]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+exclude = ["tests*", "migrations*"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
