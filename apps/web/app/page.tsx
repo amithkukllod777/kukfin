@@ -1,4 +1,5 @@
 import { Activity, BarChart3, BrainCircuit, BriefcaseBusiness, ChevronRight, ShieldCheck } from 'lucide-react';
+import Link from 'next/link';
 
 const metrics = [
   ['Portfolio value', '₹12,48,620', '+1.84%'],
@@ -23,10 +24,20 @@ export default function HomePage() {
         <p className="disclaimer">Research and educational tools only. No guaranteed returns.</p>
       </aside>
       <section className="content">
-        <header><div><p className="eyebrow">KUKLABS FINANCIAL INTELLIGENCE</p><h1>Market decisions, with evidence.</h1><p className="sub">Research, test, compare and monitor—without pretending simulated data is live.</p></div><button>Start research <ChevronRight size={16}/></button></header>
+        <header>
+          <div>
+            <p className="eyebrow">KUKLABS FINANCIAL INTELLIGENCE</p>
+            <h1>Market decisions, with evidence.</h1>
+            <p className="sub">Research, test, compare and monitor—without pretending simulated data is live.</p>
+          </div>
+          <div className="landing-actions">
+            <Link className="text-link" href="/login">Sign in</Link>
+            <Link className="button-link" href="/register">Start research <ChevronRight size={16}/></Link>
+          </div>
+        </header>
         <div className="status"><Activity size={16}/><span>Demo environment</span><b>NSE/BSE · US · Crypto</b></div>
         <section className="metrics">{metrics.map(([label,value,delta]) => <article key={label}><p>{label}</p><h2>{value}</h2><span>{delta}</span></article>)}</section>
-        <section className="panel"><div className="panel-head"><div><p className="eyebrow">CORE PLATFORM</p><h2>One workspace for research and validation</h2></div><span>Delayed demo data</span></div><div className="module-grid">{modules.map(({icon: Icon,title,text}) => <article key={title}><Icon size={22}/><h3>{title}</h3><p>{text}</p><a>Open module <ChevronRight size={14}/></a></article>)}</div></section>
+        <section className="panel"><div className="panel-head"><div><p className="eyebrow">CORE PLATFORM</p><h2>One workspace for research and validation</h2></div><span>Delayed demo data</span></div><div className="module-grid">{modules.map(({icon: Icon,title,text}) => <article key={title}><Icon size={22}/><h3>{title}</h3><p>{text}</p><Link href="/register">Open module <ChevronRight size={14}/></Link></article>)}</div></section>
       </section>
     </main>
   );
